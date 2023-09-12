@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata: 
+   name: labelpod2
+   labels:
+     name: meena
+     reddy: reddy
+spec: 
+  containers: 
+    - name: c00
+      image: centos
+      command: ["/bin/bash", "-c", "while true; do echo jyo; sleep 5 ; done"]
+
