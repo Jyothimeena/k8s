@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata: 
+  name: demoservice
+spec: 
+  ports:
+   - port: 80  #contport
+     targetPort: 80 # podport
+  selector:
+     name: deployment # label name match with selector in depoyfile
+  type: ClusterIP # VIP
+ 
+

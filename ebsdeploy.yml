@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata: 
+    name: ebsdeploy
+spec:
+    replicas: 1
+    selector:
+       matchLabels:
+           name: mypv
+    template: 
+       metadata: 
+         labels: 
+           name: mypv
+       spec: 
+         containers: 
+           - name: c00
+             image: centos
+             command: ["/bin/bash", "-c", "while true; do echo jyo; sleep 5 ; done"]
+             volumeMounts: 
+               - name: myvolume
+                 mountPath: "/tmp/contvol"
+         volumes:
+           - name: myvolume
+             persistentVolumeClaim: 
+                claimName: ebsclaim  #name should match with claim name 

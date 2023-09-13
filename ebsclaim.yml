@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata: 
+  name: ebsclaim
+spec: 
+  accessModes:
+    - ReadWriteOnce  # full acess
+  resources:
+     requests:
+        storage: 1Gi # 10gb ebs 1gi object , upto 1gi claim
+
